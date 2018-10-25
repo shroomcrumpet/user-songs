@@ -6,11 +6,13 @@ class SongsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @songs }
     end
+
+    gon.songs = @songs
   end
 
   def show
     @song = Song.find(params[:id])
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @song }
